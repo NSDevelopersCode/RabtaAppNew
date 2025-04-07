@@ -1,0 +1,2 @@
+C:/Users/Mosafir i-7/StudioProjects/raabta/android/app/.cxx/RelWithDebInfo/4g6a1n2a/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/Mosafir i-7/StudioProjects/raabta/android/app/.cxx/RelWithDebInfo/4g6a1n2a/armeabi-v7a/CMakeFiles/rebuild_cache.dir
