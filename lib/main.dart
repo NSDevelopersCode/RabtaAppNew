@@ -8,6 +8,7 @@ import 'package:raabta/controller/slider_controller.dart';
 import 'package:raabta/controller/ui_controller.dart';
 import 'package:raabta/controller/weather_controller.dart';
 import 'package:raabta/routes/route.dart';
+import 'package:raabta/sham_updates/app/driving_license_fee/views/driving_license_fee_screen.dart';
 import 'package:raabta/theme/theme_provider.dart';
 import 'package:raabta/utils/app_color.dart';
 
@@ -64,6 +65,8 @@ class RaabtaApp extends StatelessWidget {
               //   // textTheme:
               //   //     GoogleFonts.nunitoTextTheme(Theme.of(context).textTheme),
               // ),
+
+              // home: DrivingLicenseFeeScreen(),
               onGenerateRoute: (settings) {
                 return AppRouter.onGenerateRoute(settings);
               },

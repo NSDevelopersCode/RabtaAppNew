@@ -218,8 +218,8 @@ class _EmergencyNumbersState extends State<EmergencyNumbers> {
               padding: EdgeInsets.only(bottom: 5),
               dividerColor: Colors.transparent,
               tabs: [
-                Tab(text: "Complaint Cell"),
                 Tab(text: "Emergency Numbers"),
+                Tab(text: "Complaint Cell"),
               ],
             ),
             Expanded(
@@ -228,9 +228,9 @@ class _EmergencyNumbersState extends State<EmergencyNumbers> {
                   // Tab 1 content
                   SlidableAutoCloseBehavior(
                     child: ListView.builder(
-                      itemCount: cmComplaintCellData.length,
+                      itemCount: policeEmergencyData.length,
                       itemBuilder: (context, index) {
-                        final myData = cmComplaintCellData[index];
+                        final myData = policeEmergencyData[index];
                         return Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: EmergencyTile(
@@ -247,9 +247,9 @@ class _EmergencyNumbersState extends State<EmergencyNumbers> {
                   ),
                   // Tab 2 content
                   ListView.builder(
-                    itemCount: policeEmergencyData.length,
+                    itemCount: cmComplaintCellData.length,
                     itemBuilder: (context, index) {
-                      final myData = policeEmergencyData[index];
+                      final myData = cmComplaintCellData[index];
                       return EmergencyTile(
                         image: 'assets/images/KP_logo.png',
                         subtitle: myData['subtitle'],

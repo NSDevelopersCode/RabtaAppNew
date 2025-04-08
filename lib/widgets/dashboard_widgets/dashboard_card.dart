@@ -23,9 +23,9 @@ class DashboardCard extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          padding: const EdgeInsets.symmetric(vertical: 05, horizontal: 5),
           child: Material(
-            elevation: 5,
+            elevation: 2,
             borderRadius: BorderRadius.circular(10),
             color: color,
             child: Container(
@@ -33,7 +33,8 @@ class DashboardCard extends StatelessWidget {
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: color,
+                color: Colors.white,
+                // color: color,
                 // border: Border.all(width: 0, color: Colors.white)
               ),
               child: Column(
@@ -42,7 +43,7 @@ class DashboardCard extends StatelessWidget {
                   Image.asset(
                     image,
                     color: imagecolors,
-                    height: 30,
+                    height: 45,
                   )
                       .animate()
                       .slideX(delay: const Duration(milliseconds: 200))
@@ -53,7 +54,7 @@ class DashboardCard extends StatelessWidget {
                   Text(
                     text,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 15, color: textColor),
+                    style: TextStyle(fontSize: 11, color: textColor),
                   )
                       .animate()
                       .slideX(

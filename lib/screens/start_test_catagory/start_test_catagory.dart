@@ -19,7 +19,7 @@ class StartTestCatagory extends StatelessWidget {
       //   backgroundColor: Theme.of(context).colorScheme.primary,
       //   foregroundColor: Colors.white,
       // ),
-      drawer: const SideBar(),
+      // drawer: const SideBar(),
       body: Column(
         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

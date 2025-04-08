@@ -8,6 +8,7 @@ import 'package:raabta/screens/License/learner_permit.dart';
 import 'package:raabta/screens/License/renewal.dart';
 import 'package:raabta/screens/afghan/afghan_driving_license.dart';
 import 'package:raabta/screens/afghan/learner_permit.dart';
+import 'package:raabta/screens/dashboard.dart';
 import 'package:raabta/screens/emergency.dart';
 import 'package:raabta/screens/home.dart';
 import 'package:raabta/screens/liscense_procedure.dart';
@@ -44,7 +45,9 @@ class AppRouter {
         return MaterialPageRoute(builder: (context) => const Splash());
 
       case home:
-        return MaterialPageRoute(builder: (context) => const Home());
+        // return MaterialPageRoute(builder: (context) => const Home());
+        return MaterialPageRoute(builder: (context) =>                    Dashboard(),
+            );
 
       case offense:
         return MaterialPageRoute(builder: (context) => const OffenseList());
