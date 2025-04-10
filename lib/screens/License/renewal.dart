@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:raabta/screens/License/tile_widget.dart';
 
 class LicenseRenewal extends StatelessWidget {
   const LicenseRenewal({super.key});
@@ -14,37 +15,73 @@ class LicenseRenewal extends StatelessWidget {
           style: TextStyle(),
         ),
       ),
-      body: const SizedBox(
-        width: double.infinity,
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 150, horizontal: 30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'RENEWAL OF EXPIRED DRIVING LICENSE',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                'Original Previous Drivng License',
-              ),
-              Text(
-                'Valid CNIC',
-              ),
-              Text(
-                'Medical Certificate (By Authorized Medical Practitioner)',
-              ),
-              Text(
-                'Fee Voucher Of  Driving License Card Of Rs. 1000 With In One Month Of Expiry',
-              ),
-              Text(
-                'Fee Voucher Of Rs. 1500 After One month Of Expiry',
-              ),
-              Text(
-                'Fee Voucher Of Rs. 3000 After three Years Of Expiry',
-              ),
-            ],
+      body: SingleChildScrollView(
+        child: const SizedBox(
+          width: double.infinity,
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 60, horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'RENEWAL OF EXPIRED DRIVING LICENSE',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.2,
+                  ),
+                ),
+                SizedBox(height: 30),
+
+                // Required Documents Section
+                Text(
+                  'Required Documents:',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black87,
+                  ),
+                ),
+                SizedBox(height: 16),
+                RequirementItemTile(
+                  icon: Icons.credit_card,
+                  text: "Original previous Driving License.",
+                ),
+                RequirementItemTile(
+                  icon: Icons.perm_identity,
+                  text: "Valid CNIC.",
+                ),
+                RequirementItemTile(
+                  icon: Icons.medical_services,
+                  text: "Medical fitness Certificate.",
+                ),
+
+                SizedBox(height: 30),
+
+                // Fee Structure Section
+                Text(
+                  'Fee Structure:',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black87,
+                  ),
+                ),
+                SizedBox(height: 16),
+                RequirementItemTile(
+                  icon: Icons.payments,
+                  text: "Within one month of expiry: Rs. 2,500.",
+                ),
+                RequirementItemTile(
+                  icon: Icons.payments_outlined,
+                  text: "After one month to three months of expiry: Rs. 2,000.",
+                ),
+                RequirementItemTile(
+                  icon: Icons.money_off_csred,
+                  text: "After three years of expiry: Rs. 5,000.",
+                ),
+              ],
+            ),
           ),
         ),
       ),

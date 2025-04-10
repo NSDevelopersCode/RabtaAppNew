@@ -93,7 +93,7 @@ class _ExpandedTileState extends State<ExpandedTile>
   Widget build(BuildContext context) {
     return Card(
       shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(30)),
-      color: Colors.green,
+      color: const Color.fromARGB(255, 65, 161, 68),
       elevation: 5,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -148,7 +148,7 @@ class _ExpandedTileState extends State<ExpandedTile>
                             dataRowHeight: 72,
                             headingRowHeight: 55,
                             columnSpacing: 15,
-                            dividerThickness: 1,
+                            dividerThickness: 0.4,
                             headingTextStyle: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
@@ -165,14 +165,16 @@ class _ExpandedTileState extends State<ExpandedTile>
                                 return DataRow(
                                   color: WidgetStateProperty.all(
                                     index % 2 == 0
-                                        ? Colors.green.shade400 // Even rows
-                                        : Colors.green.shade600, // Odd rows
+                                        ? const Color.fromARGB(
+                                            255, 108, 206, 111) // Even rows
+                                        : const Color.fromARGB(
+                                            255, 201, 255, 204), // Odd rows
                                   ),
                                   cells: [
                                     DataCell(Text(item["Category"]!,
                                         style: TextStyle(
                                             fontWeight: FontWeight.w600,
-                                            color: Colors.white))),
+                                            color: Colors.black))),
                                     DataCell(
                                       item["Fee/Details"] is List
                                           ? Column(
@@ -185,7 +187,7 @@ class _ExpandedTileState extends State<ExpandedTile>
                                                           fontSize: 13,
                                                           fontWeight:
                                                               FontWeight.w600,
-                                                          color: Colors.white)))
+                                                          color: Colors.black)))
                                                   .toList(),
                                             )
                                           : Text(
@@ -193,7 +195,7 @@ class _ExpandedTileState extends State<ExpandedTile>
                                               style: TextStyle(
                                                   fontSize: 13,
                                                   fontWeight: FontWeight.w600,
-                                                  color: Colors.white),
+                                                  color: Colors.black),
                                             ),
                                     ),
                                   ],

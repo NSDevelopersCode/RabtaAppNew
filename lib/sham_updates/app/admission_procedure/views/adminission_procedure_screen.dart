@@ -261,6 +261,7 @@ class FeeStructureScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(height: 60),
             ],
           ),
         ),

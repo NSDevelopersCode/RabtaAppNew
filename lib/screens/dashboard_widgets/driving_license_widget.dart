@@ -1,13 +1,16 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:raabta/generic_webview.dart';
+import 'package:raabta/model/slider_model.dart';
 import 'package:raabta/routes/route.dart';
 import 'package:raabta/screens/dashboard.dart';
+import 'package:raabta/screens/dashboard_widgets/no_internet_screen.dart';
 import 'package:raabta/screens/vehicle.dart';
 import 'package:raabta/sham_updates/app/driving_license_fee/views/driving_license_fee_screen.dart';
 import 'package:raabta/sham_updates/app/license_branches/views/license_branches_screen.dart';
 
 class DrivingLicenseWidget extends StatelessWidget {
-  const DrivingLicenseWidget({super.key});
+  DrivingLicenseWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +40,20 @@ class DrivingLicenseWidget extends StatelessWidget {
         //     CrossAxisAlignment.center, // Align title to the left
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Driving License',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blueGrey.shade800,
-                  letterSpacing: 1.2,
+              Center(
+                child: Text(
+                  'Driving License',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blueGrey.shade800,
+                    letterSpacing: 1.2,
+                  ),
                 ),
               ),
-              Spacer(),
+
               // GestureDetector(
               //   onTap: () {},
               //   child: Text(
@@ -78,6 +84,7 @@ class DrivingLicenseWidget extends StatelessWidget {
                               builder: (context) => const VehicleLicense()));
                     },
                     child: Main_Fun_btn_widget(
+                      color: const Color.fromARGB(255, 124, 124, 124),
                       title: "License\nVerification",
                       icon: "assets/images/lv.png",
                     ),
@@ -95,6 +102,7 @@ class DrivingLicenseWidget extends StatelessWidget {
                           ));
                     },
                     child: Main_Fun_btn_widget(
+                      color: const Color.fromARGB(255, 59, 139, 61),
                       title: "Driving License\nFee",
                       icon: "assets/images/fees.png",
                     ),
@@ -108,6 +116,7 @@ class DrivingLicenseWidget extends StatelessWidget {
                     },
                     child: Main_Fun_btn_widget(
                       title: "License\nProcedure",
+                      color: Colors.teal,
                       icon: "assets/images/id-card.png",
                       iconColor: Colors.teal,
                     ),
@@ -151,6 +160,7 @@ class DrivingLicenseWidget extends StatelessWidget {
                       );
                     },
                     child: Main_Fun_btn_widget(
+                      color: Colors.lightBlue,
                       title: "License\nBranches",
                       icon: "assets/images/drivers-license.png",
                     ),
@@ -169,6 +179,7 @@ class DrivingLicenseWidget extends StatelessWidget {
                       );
                     },
                     child: Main_Fun_btn_widget(
+                      color: Colors.blue,
                       title: "Get\nE-License",
                       icon: "assets/images/e-li.png",
                     ),
@@ -182,13 +193,14 @@ class DrivingLicenseWidget extends StatelessWidget {
                         MaterialPageRoute(
                             builder: (context) => GenericWebViewPage(
                                   url:
-                                      'https://dlfee.a2z.care/onlineuser/register',
+                                      'https://dlfee.a2z.care/onlineuser/login/1',
                                   title: 'Apply for Learner & Duplicate',
                                 )),
                       );
                     },
                     child: Main_Fun_btn_widget(
-                      title: "Learner & Duplicate",
+                      color: const Color.fromARGB(255, 132, 7, 190),
+                      title: " Learner &\n Duplicate",
                       icon: "assets/images/get-e.png",
                     ),
                   ),

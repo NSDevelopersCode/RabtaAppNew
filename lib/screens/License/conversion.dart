@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:raabta/screens/License/tile_widget.dart';
 
 class LicenseConversion extends StatelessWidget {
   const LicenseConversion({super.key});
@@ -14,32 +15,57 @@ class LicenseConversion extends StatelessWidget {
           style: TextStyle(),
         ),
       ),
-      body: const SizedBox(
-        width: double.infinity,
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 150, horizontal: 30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'DRIVING LICENSE CONVERSION',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                'Valid CNIC',
-              ),
-              Text(
-                'Previous Driving License (MotorCycle / Motor Card + Jeep) in Original',
-              ),
-              Text('NOC From The Authority Who Issued Driving License'),
-              Text(
-                'Medical Certificate (By Authorized Medical Practitioner)',
-              ),
-              Text(
-                'Fee Voucher Of Rs. 1000, For A Driving License Card (Validity 5 Years)',
-              ),
-            ],
+      body: SingleChildScrollView(
+        child: const SizedBox(
+          width: double.infinity,
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'DRIVING LICENSE CONVERSION',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.2,
+                  ),
+                ),
+                SizedBox(height: 30),
+                Text(
+                  'Required Documents:',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black87,
+                  ),
+                ),
+                SizedBox(height: 16),
+                RequirementItemTile(
+                  icon: Icons.person,
+                  text: 'Valid CNIC ',
+                ),
+                RequirementItemTile(
+                  icon: Icons.credit_card,
+                  text:
+                      'Original previous driving license (Motorcycle/Motor Car + Jeep etc).',
+                ),
+                RequirementItemTile(
+                  icon: Icons.document_scanner,
+                  text:
+                      'No Objection Certificate (NOC) from the authority that issued the previous license.',
+                ),
+                RequirementItemTile(
+                  icon: Icons.medical_services_rounded,
+                  text: 'Medical fitness certificate.',
+                ),
+                RequirementItemTile(
+                  icon: Icons.payments_sharp,
+                  text:
+                      'Fee voucher of Rs. 2,500 for the Driving License card (valid for 5 years).',
+                ),
+              ],
+            ),
           ),
         ),
       ),

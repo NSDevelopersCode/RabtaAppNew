@@ -71,11 +71,19 @@ class _DashboardState extends State<Dashboard>
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset(
+            'assets/images/logo.png',
+            height: 30,
+          ),
+        ),
         elevation: 0,
-        title: const Text(
+        title: Text(
           'R A A B T A',
           style: TextStyle(
             fontWeight: FontWeight.bold,
+            fontSize: 14,
           ),
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
@@ -87,6 +95,7 @@ class _DashboardState extends State<Dashboard>
       //   child: const SideBar(),
       // ),
       backgroundColor: Colors.grey.shade300,
+
       body: Stack(
         children: [
           // Positioned(
@@ -96,7 +105,7 @@ class _DashboardState extends State<Dashboard>
           //   left: 0,
           //   child: Image.asset(
           //     //   'assets/images/kpk.png',
-          //     'assets/images/bg.png',
+          //     'assets/images/bg-m.jpg',
           //     //   height: 200,
           //     fit: BoxFit.cover,
           //   ),
@@ -143,46 +152,101 @@ class _DashboardState extends State<Dashboard>
                       : Padding(
                           padding: const EdgeInsets.symmetric(vertical: 10),
                           child: Container(
-                            height: 150,
+                            height: MediaQuery.of(context).size.width * 0.32,
                             width: MediaQuery.of(context).size.width * 0.9,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
                               gradient: LinearGradient(
                                 colors: [
-                                  const Color.fromARGB(255, 86, 194, 90),
+                                  const Color(0xFF56C25A),
                                   Colors.green.shade900,
                                 ],
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                               ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  blurRadius: 12,
+                                  offset: const Offset(4, 6),
+                                ),
+                              ],
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(30),
+                              child: Stack(
                                 children: [
-                                  Image.asset(
-                                    'assets/images/logo3.png',
-                                    height: 200,
-                                    width: 300,
+                                  // Optional light overlay pattern or glass effect
+                                  Positioned.fill(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Colors.white.withOpacity(0.05),
+                                            Colors.transparent,
+                                          ],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                  const SizedBox(
-                                    width: 10,
+                                  Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          flex: 5,
+                                          child: Image.asset(
+                                            'assets/images/logo3.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 10),
+                                        Expanded(
+                                          flex: 6,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: const [
+                                              Text(
+                                                'RAABTA',
+                                                style: TextStyle(
+                                                  fontSize: 26,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white,
+                                                  letterSpacing: 2,
+                                                  shadows: [
+                                                    Shadow(
+                                                      color: Colors.black38,
+                                                      blurRadius: 4,
+                                                      offset: Offset(1, 2),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(height: 4),
+                                              Text(
+                                                'Connecting lives effortlessly.',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color: Colors.white70,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  // Text(
-                                  //   'RAABTA',
-                                  //   style: TextStyle(
-                                  //     fontSize: 25,
-                                  //     fontWeight: FontWeight.bold,
-                                  //     color: Colors.white,
-                                  //     letterSpacing: 3,
-                                  //   ),
-                                  // ),
                                 ],
                               ),
                             ),
                           ),
                         ),
+
                   // SizedBox(
                   //     height: screenheight(context) * 0.20,
                   //     child: const Center(
@@ -577,14 +641,14 @@ class _DashboardState extends State<Dashboard>
                                                     const SizedBox(
                                                       height: 10,
                                                     ),
-                                                    const Text(
-                                                      'Call 24/7',
-                                                      style: TextStyle(
-                                                          fontSize: 18,
-                                                          color: Colors.black,
-                                                          fontWeight:
-                                                              FontWeight.bold),
-                                                    ),
+                                                    // const Text(
+                                                    //   'Call 24/7',
+                                                    //   style: TextStyle(
+                                                    //       fontSize: 18,
+                                                    //       color: Colors.black,
+                                                    //       fontWeight:
+                                                    //           FontWeight.bold),
+                                                    // ),
                                                     const SizedBox(
                                                       height: 10,
                                                     ),
@@ -595,22 +659,26 @@ class _DashboardState extends State<Dashboard>
                                                           children: [
                                                             TextSpan(
                                                                 text:
-                                                                    'Traffic Updates Via SMS : Send PT to ',
+                                                                    'Contact Us ',
+                                                                //'Traffic Helpline ',
                                                                 style: TextStyle(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
                                                                     fontSize:
                                                                         16,
                                                                     color: Colors
                                                                         .black)),
-                                                            TextSpan(
-                                                                text: '1915',
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        18,
-                                                                    color: Colors
-                                                                        .black,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold)),
+                                                            // TextSpan(
+                                                            //     text: '1915',
+                                                            //     style: TextStyle(
+                                                            //         fontSize:
+                                                            //             18,
+                                                            //         color: Colors
+                                                            //             .black,
+                                                            //         fontWeight:
+                                                            //             FontWeight
+                                                            //                 .bold)),
                                                           ]),
                                                     ),
                                                     const SizedBox(
@@ -736,7 +804,7 @@ class _DashboardState extends State<Dashboard>
                                                               ),
                                                             ),
                                                             title: const Text(
-                                                                "HELP LINE"),
+                                                                "Traffic Police HELP LINE"),
                                                           ),
                                                         ),
                                                       ),
@@ -910,10 +978,12 @@ class Main_Fun_btn_widget extends StatelessWidget {
   final String title;
   final String icon;
   var iconColor;
+  var color;
 
   Main_Fun_btn_widget({
     required this.title,
     required this.icon,
+    this.color = const Color.fromARGB(255, 71, 71, 71),
     this.iconColor,
     super.key,
   });
@@ -940,7 +1010,7 @@ class Main_Fun_btn_widget extends StatelessWidget {
               backgroundColor: Colors.white,
               child: Image.asset(
                 '$icon',
-                height: 40,
+                height: 38,
                 color: iconColor,
                 fit: BoxFit.cover,
               ),
@@ -949,9 +1019,9 @@ class Main_Fun_btn_widget extends StatelessWidget {
         Text(
           '$title',
           style: TextStyle(
-            fontSize: 12,
+            fontSize: MediaQuery.of(context).size.width * 0.028,
             fontWeight: FontWeight.w600,
-            color: Colors.blueGrey.shade800,
+            color: color,
           ),
           textAlign: TextAlign.center,
         )
@@ -1094,7 +1164,7 @@ class _LicenseScreenState extends State<LicenseScreen> {
               );
             },
           ),
-          // SizedBox(height: 50),
+          SizedBox(height: 50),
         ],
       ),
     );
