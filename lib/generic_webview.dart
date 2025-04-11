@@ -604,57 +604,46 @@ class _WebViewPageState extends State<GenericWebViewPage> {
 //     }
 //   }
 
-//   Future<void> _uploadAndPreviewImage(File imageFile) async {
-//     try {
-//       final bytes = await imageFile.readAsBytes();
-//       final base64 = base64Encode(bytes);
-//       final extension = imageFile.path.split('.').last.toLowerCase();
-//       final mimeType = _getMimeType(extension);
+// Future<void> _uploadAndPreviewImage(File imageFile) async {
+//   try {
+//     final bytes = await imageFile.readAsBytes();
+//     final base64 = base64Encode(bytes);
+//     final extension = imageFile.path.split('.').last.toLowerCase();
+//     final mimeType = _getMimeType(extension);
 
-//       await webViewController.runJavaScript("""
-//         const input = document.querySelector('input[type=file]');
-
-//         let previewContainer = document.getElementById('flutter-preview-container');
-//         if (!previewContainer) {
-//           previewContainer = document.createElement('div');
-//           previewContainer.id = 'flutter-preview-container';
-//           previewContainer.style.margin = '20px 0';
-//           previewContainer.style.textAlign = 'center';
-//           input.parentNode.insertBefore(previewContainer, input.nextSibling);
-//         }
-
-//         previewContainer.innerHTML = '';
-
-//         const previewImg = document.createElement('img');
-//         previewImg.style.maxWidth = '100%';
-//         previewImg.style.maxHeight = '200px';
-//         previewImg.style.border = '1px solid #ddd';
-//         previewImg.style.borderRadius = '4px';
-//         previewImg.style.padding = '5px';
-//         previewImg.src = 'data:${mimeType};base64,${base64}';
-//         previewContainer.appendChild(previewImg);
-
-//         const binary = atob('${base64}');
+//     await webViewController.runJavaScript("""
+//       (function() {
+//         const base64 = "$base64";
+//         const binary = atob(base64);
 //         const array = new Uint8Array(binary.length);
 //         for (let i = 0; i < binary.length; i++) {
 //           array[i] = binary.charCodeAt(i);
 //         }
 
-//         const file = new File([array], 'upload.${extension}', { type: '${mimeType}' });
+//         const file = new File([array], 'upload.$extension', { type: '$mimeType' });
 //         const dataTransfer = new DataTransfer();
 //         dataTransfer.items.add(file);
-//         input.files = dataTransfer.files;
 
-//         const event = new Event('change', { bubbles: true });
-//         input.dispatchEvent(event);
-//       """);
-//     } catch (e) {
-//       debugPrint("Image upload error: $e");
-//       ScaffoldMessenger.of(context).showSnackBar(
-//         SnackBar(content: Text("Failed to upload image: ${e.toString()}")),
-//       );
-//     }
+//         const input = document.querySelector('input[type=file]');
+//         if (input) {
+//           input.files = dataTransfer.files;
+//           const event = new Event('change', { bubbles: true });
+//           input.dispatchEvent(event);
+
+//           // Clear the value so user can pick another file next time
+//           setTimeout(() => {
+//             input.value = '';
+//           }, 1000);
+//         }
+//       })();
+//     """);
+//   } catch (e) {
+//     debugPrint("Image upload error: $e");
+//     ScaffoldMessenger.of(context).showSnackBar(
+//       SnackBar(content: Text("Failed to upload image: ${e.toString()}")),
+//     );
 //   }
+// }
 
 //   Future<File?> _cropImage(File imageFile) async {
 //     try {
