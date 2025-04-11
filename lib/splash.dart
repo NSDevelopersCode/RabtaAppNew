@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:raabta/routes/route.dart';
 
 class Splash extends StatefulWidget {
@@ -12,7 +13,22 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     loadData();
+    requestPermissions();
     super.initState();
+  }
+
+  Future<void> requestPermissions() async {
+    // Request multiple permissions
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.camera,
+      Permission.storage,
+      Permission.photos, // for iOS
+    ].request();
+
+    // Optional: Check individual permission
+    if (statuses[Permission.camera]!.isDenied) {
+      // Show dialog or info
+    }
   }
 
   Future<void> loadData() async {
